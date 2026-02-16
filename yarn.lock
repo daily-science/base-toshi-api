@@ -1913,14 +1913,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.12.1":
-  version: 1.13.2
-  resolution: "axios@npm:1.13.2"
+"axios@npm:^1.13.5":
+  version: 1.13.5
+  resolution: "axios@npm:1.13.5"
   dependencies:
-    follow-redirects: "npm:^1.15.6"
-    form-data: "npm:^4.0.4"
+    follow-redirects: "npm:^1.15.11"
+    form-data: "npm:^4.0.5"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/e8a42e37e5568ae9c7a28c348db0e8cf3e43d06fcbef73f0048669edfe4f71219664da7b6cc991b0c0f01c28a48f037c515263cb79be1f1ae8ff034cd813867b
+  checksum: 10c0/abf468c34f2d145f3dc7dbc0f1be67e520630624307bda69a41bbe8d386bd672d87b4405c4ee77f9ff54b235ab02f96a9968fb00e75b13ce64706e352a3068fd
   languageName: node
   linkType: hard
 
@@ -2541,7 +2541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.6":
+"follow-redirects@npm:^1.15.11":
   version: 1.15.11
   resolution: "follow-redirects@npm:1.15.11"
   peerDependenciesMeta:
@@ -2561,7 +2561,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"form-data@npm:^4.0.4":
+"form-data@npm:^4.0.5":
   version: 4.0.5
   resolution: "form-data@npm:4.0.5"
   dependencies:
@@ -3373,10 +3373,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nzshm22-toshi-api@workspace:."
   dependencies:
-    serverless: "npm:^4.29.0"
+    serverless: "npm:^4.32.0"
     serverless-dynamodb: "npm:^0.2.56"
     serverless-plugin-ifelse: "npm:^1.0.7"
-    serverless-plugin-warmup: "npm:^8.3.0"
+    serverless-plugin-warmup: "npm:^8.4.0"
     serverless-s3-local: "npm:^0.8.5"
     serverless-wsgi: "npm:^3.1.0"
   languageName: unknown
@@ -3602,7 +3602,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rimraf@npm:^5.0.5":
+"rimraf@npm:^5.0.10":
   version: 5.0.10
   resolution: "rimraf@npm:5.0.10"
   dependencies:
@@ -3739,10 +3739,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serverless-plugin-warmup@npm:^8.3.0":
-  version: 8.3.0
-  resolution: "serverless-plugin-warmup@npm:8.3.0"
-  checksum: 10c0/22a89b12a64a010ad7ff36e181498ec38f336be805d1141931102415f4620ee034bbef07259a61ed3aa86a57d58d5d89a89c1fecda6d90d431fcbfbddbbfdd31
+"serverless-plugin-warmup@npm:^8.4.0":
+  version: 8.4.0
+  resolution: "serverless-plugin-warmup@npm:8.4.0"
+  checksum: 10c0/ed3db7ff5211c939d15d70be65bda58a15485ccb2a49f1328a4b22667350c398613b8ad8758f6e9a6411fb57f11554109f50678609d5da97e8654b9fee38b172
   languageName: node
   linkType: hard
 
@@ -3774,18 +3774,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"serverless@npm:^4.29.0":
-  version: 4.29.0
-  resolution: "serverless@npm:4.29.0"
+"serverless@npm:^4.32.0":
+  version: 4.32.0
+  resolution: "serverless@npm:4.32.0"
   dependencies:
-    axios: "npm:^1.12.1"
+    axios: "npm:^1.13.5"
     axios-proxy-builder: "npm:^0.1.2"
-    rimraf: "npm:^5.0.5"
+    rimraf: "npm:^5.0.10"
     xml2js: "npm:0.6.2"
   bin:
     serverless: run.js
     sls: run.js
-  checksum: 10c0/60ced7407bd2c2d189314461b90d53a053e08a682bb40f2cee4c6c356db7ffbd3623cb6b4a5bc19a6b6fc40b6b757933738cff1b816cc538b2e750c627455387
+  checksum: 10c0/935b731dcd7e9680ef0ac177790e2f9cea12f32c2a3b074e8c9b2516648d74a812461406dfd2cb549c73dd03dbfdf65fd9dbd66b2838090c9e94725569934208
   languageName: node
   linkType: hard
 

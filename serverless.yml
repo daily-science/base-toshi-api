@@ -1,8 +1,8 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: gnssciencenshm
+org: chrisbc
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
-app: nshm-toshi-api
-service: nzshm22-toshi-api
+app: base-toshi-api
+service: base-toshi-api
 
 plugins:
   - serverless-wsgi
