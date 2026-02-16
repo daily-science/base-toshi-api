@@ -45,7 +45,7 @@ aws_secret_access_key=MockAccessKeyId
 
 Configuration is managed by environment variables and `.env` files.
 
- - Please see `graphql_api\config.py` for all config options
+ - Please see `base_toshi_api\config.py` for all config options
  - the file `.env.example` includes the commonly used develepment setups  
 
 ## Smoketest
@@ -77,7 +77,7 @@ docker run -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" docker.elas
 
 Then in another shell,
 ```bash
-poetry run python3 graphql_api/tests/smoketests.py
+poetry run python3 base_toshi_api/tests/smoketests.py
 ```
 
 ## Unit test
@@ -112,7 +112,7 @@ SLS_OFFLINE=1 poetry run yarn sls wsgi serve
 ```
 then in another shell,
 ```
-SLS_OFFLINE=1 S3_BUCKET_NAME=nzshm22-toshi-api-local S3_TEST_DATA_PATH=s3_extract python3 graphql_api/tests/upload_test_s3_extract.py 
+SLS_OFFLINE=1 S3_BUCKET_NAME=nzshm22-toshi-api-local S3_TEST_DATA_PATH=s3_extract python3 base_toshi_api/tests/upload_test_s3_extract.py 
 ```
 then in the simple-toshi-ui repo,
 set REACT_APP_GRAPH_ENDPOINT=http://localhost:5000/graphql,

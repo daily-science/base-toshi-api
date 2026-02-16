@@ -35,7 +35,7 @@ dependencies = [
 elastic_cli = 'scripts.elastic_cli:main'
 
 [tool.poetry]
-packages = [{include = "graphql_api"}]
+packages = [{include = "base_toshi_api"}]
 
 [dependency-groups]
 dev = [

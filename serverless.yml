@@ -28,7 +28,7 @@ package:
 custom:
   #serverless-wsgi settings
   wsgi:
-    app: graphql_api.api.app
+    app: base_toshi_api.api.app
     packRequirements: false
     pythonBin: python3
 
