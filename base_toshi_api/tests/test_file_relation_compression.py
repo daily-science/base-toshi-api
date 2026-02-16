@@ -163,8 +163,7 @@ class TestCompressRelations(unittest.TestCase):
             json.loads(decompress_string(file.object_content['relations']))[-1], {'id': '100000', 'role': 'read'}
         )
 
-        query = (
-            '''
+        query = '''
             query get_file {
               node(id: "%s") {
                 __typename
@@ -189,9 +188,7 @@ class TestCompressRelations(unittest.TestCase):
                   }
                 }
               }
-            }'''
-            % file_id
-        )
+            }''' % file_id
 
         file_result = self.client.execute(query)
         print(file_result)

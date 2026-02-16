@@ -3,6 +3,7 @@
 This module contains the schema definition for a AggregateInversionSolution.
 
 """
+
 import logging
 from datetime import datetime as dt
 from datetime import timezone
@@ -82,7 +83,9 @@ class CreateAggregateInversionSolution(relay.ClientIDMutation):
         produced_by = graphene.ID()
         created = graphene.DateTime(description="When the solution was created")
         predecessors = graphene.List(
-            'base_toshi_api.schema.custom.predecessor.PredecessorInput', required=False, description="list of predecessors"
+            'base_toshi_api.schema.custom.predecessor.PredecessorInput',
+            required=False,
+            description="list of predecessors",
         )
 
     solution = graphene.Field(AggregateInversionSolution)

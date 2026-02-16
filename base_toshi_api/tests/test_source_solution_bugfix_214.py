@@ -122,9 +122,7 @@ def test_scaled_inversion_example(graphene_client, mock_dynamodb_read):
             }
           }
         }
-    """ % to_global_id(
-        'ScaledInversionSolution', 120837
-    )
+    """ % to_global_id('ScaledInversionSolution', 120837)
 
     result = graphene_client.execute(QRY)
     print(result)

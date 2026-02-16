@@ -3,6 +3,7 @@
 This module contains the schema definition for OpenquakeHazardSolution.
 
 """
+
 from datetime import datetime as dt
 from datetime import timezone
 
@@ -120,7 +121,9 @@ class CreateOpenquakeHazardSolution(relay.ClientIDMutation):
         )
 
         predecessors = graphene.List(
-            'base_toshi_api.schema.custom.predecessor.PredecessorInput', required=False, description="list of predecessors"
+            'base_toshi_api.schema.custom.predecessor.PredecessorInput',
+            required=False,
+            description="list of predecessors",
         )
 
     openquake_hazard_solution = graphene.Field(OpenquakeHazardSolution)

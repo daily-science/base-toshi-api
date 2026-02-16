@@ -30,8 +30,7 @@ def mock_dbdata(monkeypatch):
 
 def test_bug_squashed_coz_we_called_s3_client(graphene_client, mock_dbdata):
     node_id = to_global_id("File", '1001')
-    QRY = (
-        """
+    QRY = """
         query {
 		  node(id:"%s") {
 		    ... on File {
@@ -41,9 +40,7 @@ def test_bug_squashed_coz_we_called_s3_client(graphene_client, mock_dbdata):
 		    }
 		  }
 		}
-    """
-        % node_id
-    )
+    """ % node_id
 
     print(QRY)
     result = graphene_client.execute(QRY)  # , variable_values=dict(created=dt.datetime.now(tzutc())))

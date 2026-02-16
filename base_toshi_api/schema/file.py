@@ -130,7 +130,9 @@ class CreateFile(graphene.Mutation):
             KeyValuePairInput, required=False, description="additional file meta data, as a list of Key Value pairs."
         )
         predecessors = graphene.List(
-            'base_toshi_api.schema.custom.predecessor.PredecessorInput', required=False, description="list of predecessors"
+            'base_toshi_api.schema.custom.predecessor.PredecessorInput',
+            required=False,
+            description="list of predecessors",
         )
 
     ok = graphene.Boolean()

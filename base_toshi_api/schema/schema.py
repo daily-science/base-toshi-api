@@ -25,13 +25,19 @@ from base_toshi_api.schema.custom.inversion_solution import (
 )
 from base_toshi_api.schema.custom.inversion_solution_nrml import CreateInversionSolutionNrml, InversionSolutionNrml
 from base_toshi_api.schema.custom.openquake_hazard_config import CreateOpenquakeHazardConfig, OpenquakeHazardConfig
-from base_toshi_api.schema.custom.openquake_hazard_solution import CreateOpenquakeHazardSolution, OpenquakeHazardSolution
+from base_toshi_api.schema.custom.openquake_hazard_solution import (
+    CreateOpenquakeHazardSolution,
+    OpenquakeHazardSolution,
+)
 from base_toshi_api.schema.custom.openquake_hazard_task import (
     CreateOpenquakeHazardTask,
     OpenquakeHazardTask,
     UpdateOpenquakeHazardTask,
 )
-from base_toshi_api.schema.custom.scaled_inversion_solution import CreateScaledInversionSolution, ScaledInversionSolution
+from base_toshi_api.schema.custom.scaled_inversion_solution import (
+    CreateScaledInversionSolution,
+    ScaledInversionSolution,
+)
 from base_toshi_api.schema.custom.time_dependent_inversion_solution import (
     CreateTimeDependentInversionSolution,
     TimeDependentInversionSolution,

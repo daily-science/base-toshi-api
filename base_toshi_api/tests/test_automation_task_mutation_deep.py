@@ -72,8 +72,7 @@ class TestUpdateRuptureGenerationTask(unittest.TestCase, SetupHelpersMixin):
         self.scaled_solution_id = ss['id']
 
     def test_update_with_metrics(self):
-        qry = (
-            '''
+        qry = '''
             mutation {
                 update_automation_task(input: {
                     task_id: "%s"
@@ -92,9 +91,7 @@ class TestUpdateRuptureGenerationTask(unittest.TestCase, SetupHelpersMixin):
                     }
                 }
             }
-        '''
-            % self.at_id
-        )
+        ''' % self.at_id
         print(qry)
         executed = self.client.execute(qry)
         print(executed)

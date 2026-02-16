@@ -60,8 +60,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
 
     def test_nodes_query(self):
         print("self.scaled_solution_id", self.scaled_solution_id)
-        qry = (
-            '''
+        qry = '''
         query q0 {
           nodes(id_in: ["%s"]) {
             ok
@@ -76,9 +75,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
               }
             }
           }
-        }'''
-            % self.scaled_solution_id
-        )
+        }''' % self.scaled_solution_id
 
         print(qry)
         executed = self.client.execute(qry)
@@ -90,8 +87,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
 
     def test_nodes_query_expand_solution(self):
         print("self.scaled_solution_id", self.scaled_solution_id)
-        qry = (
-            '''
+        qry = '''
         query q0 {
           nodes(id_in: ["%s"]) {
             ok
@@ -127,9 +123,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
               }
             }
           }
-        }'''
-            % self.scaled_solution_id
-        )
+        }''' % self.scaled_solution_id
 
         print(qry)
         executed = self.client.execute(qry)
@@ -145,8 +139,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
 
     def test_nodes_query_expand_solution_task_hierarchy(self):
         print("self.scaled_solution_id", self.scaled_solution_id)
-        qry = (
-            '''
+        qry = '''
         query q0 {
           nodes(id_in: ["%s"]) {
             ok
@@ -184,9 +177,7 @@ class TestScaledInversionSolution(unittest.TestCase, SetupHelpersMixin):
               }
             }
           }
-        }'''
-            % self.scaled_solution_id
-        )
+        }''' % self.scaled_solution_id
 
         print(qry)
         executed = self.client.execute(qry)

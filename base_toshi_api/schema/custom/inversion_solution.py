@@ -3,6 +3,7 @@
 This module contains the schema definition for an InversionSolution.
 
 """
+
 import copy
 import datetime
 import logging
@@ -114,7 +115,9 @@ class CreateInversionSolution(relay.ClientIDMutation):
         mfd_table_id = InversionSolutionInterface.mfd_table_id
         hazard_table_id = InversionSolutionInterface.hazard_table_id
         predecessors = graphene.List(
-            'base_toshi_api.schema.custom.predecessor.PredecessorInput', equired=False, description="list of predecessors"
+            'base_toshi_api.schema.custom.predecessor.PredecessorInput',
+            equired=False,
+            description="list of predecessors",
         )
 
         tables = graphene.List(LabelledTableRelationInput, required=False)

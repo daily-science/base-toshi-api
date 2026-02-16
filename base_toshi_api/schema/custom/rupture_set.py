@@ -3,6 +3,7 @@
 This module contains the schema definition for a RuptureSet.
 
 """
+
 import logging
 from datetime import datetime as dt
 from datetime import timezone

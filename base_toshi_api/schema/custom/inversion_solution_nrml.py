@@ -3,6 +3,7 @@
 This module contains the schema definition for InversionSolutionNrml.
 
 """
+
 from datetime import datetime as dt
 from datetime import timezone
 
@@ -64,7 +65,9 @@ class CreateInversionSolutionNrml(relay.ClientIDMutation):
         source_solution = graphene.ID()
         created = InversionSolutionNrml.created
         predecessors = graphene.List(
-            'base_toshi_api.schema.custom.predecessor.PredecessorInput', required=False, description="list of predecessors"
+            'base_toshi_api.schema.custom.predecessor.PredecessorInput',
+            required=False,
+            description="list of predecessors",
         )
 
     inversion_solution_nrml = graphene.Field(InversionSolutionNrml)

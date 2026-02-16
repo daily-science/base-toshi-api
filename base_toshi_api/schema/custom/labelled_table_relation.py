@@ -3,6 +3,7 @@
 This module contains the schema definition for an LabelledTableRelation.
 
 """
+
 import graphene
 
 from base_toshi_api.schema.custom.common import KeyValueListPair, KeyValueListPairInput

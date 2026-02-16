@@ -12,6 +12,7 @@ This module contains the schema definition for an Table
   - table_type - let's constrain this
   - dimensions - list of the main table dimensions
 """
+
 from datetime import datetime as dt
 from datetime import timezone
 from typing import TYPE_CHECKING
