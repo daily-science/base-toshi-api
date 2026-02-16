@@ -1,5 +1,5 @@
 [project]
-name = "nshm-toshi-api"
+name = "base-toshi-api"
 version = "0.5.2"
 description = "the object store used by NZSHM project"
 authors = [
