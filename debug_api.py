@@ -1,5 +1,5 @@
 # app.py
-from graphql_api import api
+from base_toshi_api import api
 
 app = api.app
 app.run()

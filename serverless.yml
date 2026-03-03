@@ -1,8 +1,8 @@
 # "org" ensures this Service is used with the correct Serverless Framework Access Key.
-org: gnssciencenshm
+org: dailyscience
 # "app" enables Serverless Framework Dashboard features and sharing them with other Services.
-app: nshm-toshi-api
-service: nzshm22-toshi-api
+app: base-toshi-api
+service: base-toshi-api
 
 plugins:
   - serverless-wsgi
@@ -28,7 +28,7 @@ package:
 custom:
   #serverless-wsgi settings
   wsgi:
-    app: graphql_api.api.app
+    app: base_toshi_api.api.app
     packRequirements: false
     pythonBin: python3
 
@@ -89,18 +89,18 @@ custom:
   # presigned URL TTL
   url_default_ttl: 60
 
-  #elastic search
-  esDomainName: ${self:custom.app_acronym}-es-${self:custom.stage}
-  esIndex: toshi_index_mapped
+  # #elastic search
+  # esDomainName: ${self:custom.app_acronym}-es-${self:custom.stage}
+  # esIndex: toshi_index_mapped
 
   first_dynamo_id: ${env:FIRST_DYNAMO_ID, 100000}
 
-  serverlessIfElse:
-      - If: '"${self:custom.stage}" == "test"'
-        Exclude:
-          - resourcee.Resources.ElasticSearchInstance
-          - provider.iamrolestatements.1
-          - functions.app.environment.0
+  # serverlessIfElse:
+  #     - If: '"${self:custom.stage}" == "test"'
+  #       Exclude:
+  #         - resourcee.Resources.ElasticSearchInstance
+  #         - provider.iamrolestatements.1
+  #         - functions.app.environment.0
 
 provider:
   name: aws
@@ -120,17 +120,17 @@ provider:
       Resource:
         - ${self:custom.s3_role_resource}
         - ${self:custom.s3_role_resource}/*
-    # ES access policy
-    # modelled on https://github.com/serverless/examples/blob/master/aws-golang-dynamo-stream-to-elasticsearch/serverless.yml
-    - Effect: Allow
-      Action:
-        - es:ESHttpPost
-        - es:ESHttpPut
-        - es:ESHttpHead
-        - es:ESHttpGet
-      Resource:
-        - { "Fn::GetAtt": ["ElasticSearchInstance", "DomainArn"] }
-        - { "Fn::Join": ["", ["Fn::GetAtt": ["ElasticSearchInstance", "DomainArn"], "/*"]] }
+    # # ES access policy
+    # # modelled on https://github.com/serverless/examples/blob/master/aws-golang-dynamo-stream-to-elasticsearch/serverless.yml
+    # - Effect: Allow
+    #   Action:
+    #     - es:ESHttpPost
+    #     - es:ESHttpPut
+    #     - es:ESHttpHead
+    #     - es:ESHttpGet
+    #   Resource:
+    #     - { "Fn::GetAtt": ["ElasticSearchInstance", "DomainArn"] }
+    #     - { "Fn::Join": ["", ["Fn::GetAtt": ["ElasticSearchInstance", "DomainArn"], "/*"]] }
     -  Effect: Allow
        Action:
          - "cloudwatch:PutMetricData"
@@ -157,8 +157,8 @@ functions:
   app:
     description: The graphql API of ${self:service}
     handler: wsgi_handler.handler
-    memorySize: 8192 # optional, in MB, default is 1024
-    timeout: 30 # optional, in seconds, default is 6
+    memorySize: 2048 # optional, in MB, default is 1024
+    timeout: 25 # optional, in seconds, default is 6
     events:
       - http:
           path: graphql
@@ -172,17 +172,17 @@ functions:
           method: GET
           private: true
     environment:
-      ES_ENDPOINT: {"Fn::Join": ["", ["https://", "Fn::GetAtt": ["ElasticSearchInstance", "DomainEndpoint"]]]}
-      ES_INDEX: ${self:custom.esIndex}
-      ES_REGION: ${self:custom.region}
-      ES_DOMAIN_NAME: ${self:custom.esDomainName}
+      # ES_ENDPOINT: {"Fn::Join": ["", ["https://", "Fn::GetAtt": ["ElasticSearchInstance", "DomainEndpoint"]]]}
+      # ES_INDEX: ${self:custom.esIndex}
+      # ES_REGION: ${self:custom.region}
+      # ES_DOMAIN_NAME: ${self:custom.esDomainName}
       STACK_NAME: ${self:custom.stack_name}
       FIRST_DYNAMO_ID: ${self:custom.first_dynamo_id}
-    warmup:
-      lowConcurrencyWarmer:
-        enabled:
-          - test
-          - prod
+    # warmup:
+    #   lowConcurrencyWarmer:
+    #     enabled:
+    #       - test
+    #       - prod
 
 resources:
   Resources:
@@ -191,19 +191,19 @@ resources:
       Properties:
         BucketName: ${self:custom.s3_bucket}
 
-    # following on from
-    #   https://www.serverless.com/blog/build-geosearch-graphql-api-aws-appsync-elasticsearch
-    ElasticSearchInstance:
-      Type: AWS::Elasticsearch::Domain
-      Properties:
-        ElasticsearchVersion: 6.2
-        DomainName: "${self:custom.esDomainName}"
-        EBSOptions:
-          EBSEnabled: true
-          VolumeType: gp2
-          VolumeSize: 10
-        ElasticsearchClusterConfig:
-          InstanceType: t2.small.elasticsearch
-          InstanceCount: 1
-          DedicatedMasterEnabled: false
-          ZoneAwarenessEnabled: false
+    # # following on from
+    # #   https://www.serverless.com/blog/build-geosearch-graphql-api-aws-appsync-elasticsearch
+    # ElasticSearchInstance:
+    #   Type: AWS::Elasticsearch::Domain
+    #   Properties:
+    #     ElasticsearchVersion: 6.2
+    #     DomainName: "${self:custom.esDomainName}"
+    #     EBSOptions:
+    #       EBSEnabled: true
+    #       VolumeType: gp2
+    #       VolumeSize: 10
+    #     ElasticsearchClusterConfig:
+    #       InstanceType: t2.small.elasticsearch
+    #       InstanceCount: 1
+    #       DedicatedMasterEnabled: false
+    #       ZoneAwarenessEnabled: false

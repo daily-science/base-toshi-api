@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.0] - 2026-02-16
+### Changed
+ - refactor new source folder.
+ - refactored workflows to use local fork, otherwises codecov API auth fails.
+
+### Added
+ - project configuration doc.
+
 ## [0.5.2] - 2025-12-15
 
 ### Changed

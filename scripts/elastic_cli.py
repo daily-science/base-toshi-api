@@ -10,7 +10,7 @@ from elasticsearch_dsl import Q, Search, connections
 
 
 from graphql_relay import to_global_id
-from graphql_api.config import ES_ENDPOINT, ES_REGION, ES_INDEX
+from base_toshi_api.config import ES_ENDPOINT, ES_REGION, ES_INDEX
 
 credentials = boto3.Session().get_credentials()
 awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, ES_REGION, 'es', session_token=credentials.token)
@@ -176,11 +176,11 @@ def cli_nis(flip, clazz, task_type, list_ids, verbose):
     # duration = graphene.Float(description="the final duration of the event in seconds")
 
     children = relay.ConnectionField(
-        'graphql_api.schema.task_task_relation.TaskTaskRelationConnection', description="sub-tasks of this task"
+        'base_toshi_api.schema.task_task_relation.TaskTaskRelationConnection', description="sub-tasks of this task"
     )
 
     parents = relay.ConnectionField(
-        'graphql_api.schema.task_task_relation.TaskTaskRelationConnection', description="parent task(s) of this task"
+        'base_toshi_api.schema.task_task_relation.TaskTaskRelationConnection', description="parent task(s) of this task"
     )
 """
 

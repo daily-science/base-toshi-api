@@ -1,6 +1,6 @@
 [project]
-name = "nshm-toshi-api"
-version = "0.5.2"
+name = "base-toshi-api"
+version = "0.6.0"
 description = "the object store used by NZSHM project"
 authors = [
     {name = "Chris B Chamberlain",email = "chrisbc@artisan.co.nz"},
@@ -35,7 +35,7 @@ dependencies = [
 elastic_cli = 'scripts.elastic_cli:main'
 
 [tool.poetry]
-packages = [{include = "graphql_api"}]
+packages = [{include = "base_toshi_api"}]
 
 [dependency-groups]
 dev = [
