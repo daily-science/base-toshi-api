@@ -70,7 +70,7 @@ class TestInversionSolutionWithMFDWorkflow(unittest.TestCase):
 
         result = self.client.execute(SETUP)
         print(result)
-        # assert 0
+        assert 0
         VERIFY = '''
         query {
           node(id: "SW52ZXJzaW9uU29sdXRpb246MTAwMDAw") {

@@ -18,16 +18,16 @@ handlers:
 loggers:
 
   root:
-    level: WARNING
+    level: DEBUG
     handlers: [console_handler]
 
   flask:
-    level: WARNING
+    level: INFO
     handlers: [console_handler]
     propagate: no
 
   werkzeug:
-    level: WARNING
+    level: INFO
     handlers: [console_handler]
     propagate: no
 

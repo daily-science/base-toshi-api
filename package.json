@@ -24,7 +24,7 @@
     "url": "https://github.com/GNS-Science/nshm-toshi-api/issues"
   },
   "homepage": "https://github.com/GNS-Science/nshm-toshi-api#readme",
-  "devDependencies": {
+  "dependencies": {
     "serverless": "^4.32.0",
     "serverless-dynamodb": "^0.2.56",
     "serverless-plugin-ifelse": "^1.0.7",

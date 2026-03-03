@@ -275,7 +275,7 @@ class BaseDynamoDBData(BaseData):
             identity = ToshiIdentity.get(self._prefix)
         except DoesNotExist:
             # very first use of the identity
-            logger.debug(f'get_next_id setting initial ID; table_name={self._prefix}, object_id={FIRST_DYNAMO_ID}')
+            logger.warning(f'get_next_id setting initial ID; table_name={self._prefix}, object_id={FIRST_DYNAMO_ID}')
             identity = ToshiIdentity(table_name=self._prefix, object_id=FIRST_DYNAMO_ID)
             identity.save()
         db_metrics.put_duration(__name__, 'get_next_id', dt.now(timezone.utc) - t0)

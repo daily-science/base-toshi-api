@@ -32,15 +32,20 @@ class SearchManager:
         self._endpoint = endpoint
         self._es_index = es_index
         self._url = endpoint + '/' + es_index + '/' + TYPE + '/'
-        self.es = Elasticsearch(
-            hosts=[ES_ENDPOINT], http_auth=awsauth, verify_certs=True, connection_class=RequestsHttpConnection
-        )
+        if ES_ENDPOINT:
+            self.es = Elasticsearch(
+                hosts=[ES_ENDPOINT], http_auth=awsauth, verify_certs=True, connection_class=RequestsHttpConnection
+            )
 
     def index_document(self, key, document):
         # Index the document
         t0 = dt.now(timezone.utc)
         es_key = key.replace("/", "_")
 
+
+        if not ES_ENDPOINT:
+            log.warning('No ES ENDPOINT configured.')
+            return
         # >>> BEGIN_HACK
         # ES cannot handle documents that have different types in one field.
         # The recommended solution is to rename the field by the type.
@@ -69,6 +74,11 @@ class SearchManager:
 
         headers = {}  # "Content-Type": "application/json" }
         result = []
+
+        if not ES_ENDPOINT:
+            log.warning('No ES ENDPOINT configured.')
+            return result
+
         try:
             log.info(f"SearchManager.search({term})")
             qurl = self._endpoint + '/' + self._es_index + '/_search?q=' + term
